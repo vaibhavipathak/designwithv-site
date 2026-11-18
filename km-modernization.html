@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KM Modernization case study | Vaibhavi Bhatt</title>
+<meta name="description" content="How a legacy knowledge base was redesigned around a permission-based, task-first structure and proven in a 16-agent pilot.">
+<meta name="theme-color" content="#040607">
+<link rel="canonical" href="https://designwithv.ca/km-modernization.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="KM Modernization case study | Vaibhavi Bhatt">
+<meta property="og:description" content="From content repository to decision support: a knowledge base redesigned so frontline agents reach the right answer in seconds.">
+<meta property="og:url" content="https://designwithv.ca/km-modernization.html">
+<meta property="og:image" content="https://designwithv.ca/assets/img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html"><span class="brand-dot" aria-hidden="true"></span>Vaibhavi Bhatt</a>
+    <button class="btn btn-ghost btn-sm nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+    <nav class="nav-links" id="nav-links" aria-label="Primary">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#prototypes">Prototypes</a>
+      <a href="index.html#about">About</a>
+      <a class="btn btn-ghost btn-sm" href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+  <div class="progress" aria-hidden="true"></div>
+</header>
+
+<main id="main">
+
+<section>
+  <div class="wrap cs-head">
+    <a class="back" href="index.html#work"><span aria-hidden="true">←</span> All work</a>
+    <p class="mono" data-reveal>Case study · Information architecture</p>
+    <h1 class="h-page" data-reveal style="--d: 60ms">KM Modernization</h1>
+    <p class="lede" data-reveal style="--d: 140ms">From content repository to decision support: a legacy knowledge base redesigned so frontline agents reach the right answer in seconds. Planned end to end and proven in a pilot.</p>
+    <dl class="meta" data-reveal style="--d: 220ms">
+      <div><dt class="mono">Role</dt><dd>Knowledge Management Lead and information architect</dd></div>
+      <div><dt class="mono">Methods</dt><dd>Agent interviews, call shadowing, surveys, open card sorting, tree testing, affinity mapping, usage and call analytics</dd></div>
+      <div><dt class="mono">Status</dt><dd>Research, design and pilot completed. Full rollout planned, then halted by a company acquisition.</dd></div>
+      <div><dt class="mono">Tools</dt><dd>SharePoint, Confluence, Lucidchart, Figma, SurveyMonkey, Optimal Workshop, Tableau, Genesys and SpeechMiner</dd></div>
+    </dl>
+  </div>
+
+  <!-- At a glance: team-based versus task-first -->
+  <div class="wrap cs-hero">
+    <div class="ba" data-stagger="140">
+      <figure class="ba-card" data-reveal>
+        <p class="mono">Before · organized by team</p>
+        <div class="ba-teams">
+          <div class="ba-col">
+            <p class="ba-head">Team A</p>
+            <p class="ba-chip">Update Profile</p>
+            <p class="ba-chip dup">Book Travel</p>
+            <p class="ba-chip dup2">Report Fraud</p>
+          </div>
+          <div class="ba-col">
+            <p class="ba-head">Team B</p>
+            <p class="ba-chip dup">Book Travel</p>
+            <p class="ba-chip">Modify or Cancel Bookings</p>
+            <p class="ba-chip">Issue Goodwill Miles</p>
+          </div>
+          <div class="ba-col">
+            <p class="ba-head">Team C</p>
+            <p class="ba-chip dup2">Report Fraud</p>
+            <p class="ba-chip">Investigate &amp; Resolve Fraud</p>
+            <p class="ba-chip">Handle Partner Escalations</p>
+          </div>
+        </div>
+        <figcaption>Processes were filed under the team that owned them, and some lived in several sections. Agents with overlapping roles had to remember who owned what, then jump between sections to find it.</figcaption>
+      </figure>
+      <figure class="ba-card" data-reveal>
+        <p class="mono accent">After · organized by task, filtered by access</p>
+        <div class="ba-teams">
+          <div class="ba-col">
+            <p class="ba-head ba-head-task">Manage Account &amp; Balance</p>
+            <p class="ba-chip lv-g">Update Profile</p>
+            <p class="ba-chip lv-g">Report Fraud</p>
+            <p class="ba-chip lv-a">Investigate &amp; Resolve Fraud</p>
+          </div>
+          <div class="ba-col">
+            <p class="ba-head ba-head-task">Redeem &amp; Manage Rewards</p>
+            <p class="ba-chip lv-s">Book Travel</p>
+            <p class="ba-chip lv-s">Modify or Cancel Bookings</p>
+          </div>
+          <div class="ba-col">
+            <p class="ba-head ba-head-task">Resolve Program Issues</p>
+            <p class="ba-chip lv-s">Issue Goodwill Miles</p>
+            <p class="ba-chip lv-a">Handle Partner Escalations</p>
+          </div>
+        </div>
+        <figcaption>One set of task headings for everyone. Each agent sees every process their access covers, in one place, with nothing to remember about which team owns it.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section band-light">
+  <div class="wrap cs-body">
+
+    <div class="cs-row">
+      <div class="stack gap-8" data-reveal>
+        <p class="mono">01 · The problem</p>
+        <h2 class="h-card">Agents were guessing</h2>
+      </div>
+      <div class="stack gap-20">
+        <p class="cs-text" data-reveal>A high-volume loyalty contact centre relied on a knowledge base built on a legacy SharePoint 2010 platform, organized by team name.</p>
+        <p class="cs-text" data-reveal>Core frontline agents mostly worked in one section, but the domain-specific and expert teams, who handle specialized processes, exceptions and escalations, worked across several. They had to remember which team owned each process, open that team's section, and back out to try another when they guessed wrong, all mid-call while the customer waited.</p>
+        <div class="stack gap-12" data-reveal>
+          <p class="muted">Research with frontline agents surfaced six themes:</p>
+          <ul class="tags">
+            <li>Findability breakdowns</li><li>Cognitive load</li><li>Time pressure</li><li>Content fragmentation</li><li>Workarounds</li><li>Trust and confidence</li>
+          </ul>
+        </div>
+        <figure data-reveal>
+          <button class="frame crop" type="button" data-zoom="assets/img/affinity-map.jpg" data-alt="Affinity map of agent quotes grouped into six themes" aria-label="Enlarge the affinity map">
+            <img src="assets/img/affinity-map.jpg" width="1400" height="1838" alt="Affinity map: sticky notes with agent quotes grouped under findability, cognitive load, time pressure and other themes" loading="lazy">
+          </button>
+          <figcaption>Affinity map of agent quotes, grouped by theme. Select it to see the whole map.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="cs-row">
+      <div class="stack gap-8" data-reveal>
+        <p class="mono">02 · The approach</p>
+        <h2 class="h-card">Restructure, not rewrite</h2>
+      </div>
+      <ol class="numbered" data-stagger="90">
+        <li data-reveal><h3>Turned a migration into a redesign</h3><p>A move to a new platform was already being discussed. Rather than carry the old structure across as it was, I pitched using the moment to rebuild it. The content was not the problem. Its structure was.</p></li>
+        <li data-reveal>
+          <h3>Replaced team-based navigation with a permission-based model</h3>
+          <p>Every agent sees the same main navigation, organized by task. What appears under each heading depends on their access level, and the levels build on each other:</p>
+          <ul class="levels">
+            <li><span class="lv-dot lv-g" aria-hidden="true"></span><span><strong>General access</strong> (core frontline teams) sees the general pages.</span></li>
+            <li><span class="lv-dot lv-s" aria-hidden="true"></span><span><strong>Specialized access</strong> (domain-specific teams) sees the general pages plus specialized ones.</span></li>
+            <li><span class="lv-dot lv-a" aria-hidden="true"></span><span><strong>Advanced access</strong> (expert teams handling exceptions and escalations) sees everything above plus their own processes, which no other team sees.</span></li>
+          </ul>
+          <p>Agents no longer need to remember which team owns a process: everything their role covers is in one place. And because every agent sees the same main navigation, a frontline agent moving into a specialized or expert role keeps working with labels they already know. Only the pages underneath grow.</p>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Permission-based sitemap (animated) -->
+    <figure class="sitemap-gif" data-reveal>
+      <button class="frame" type="button" data-zoom="assets/img/permission-sitemap.gif" data-alt="Permission-based sitemap cycling through general, specialized and advanced access" aria-label="Enlarge the permission-based sitemap">
+        <img src="assets/img/permission-sitemap.gif" width="960" height="567" alt="Permission-based sitemap. The same five task headings stay fixed while the pages underneath change by access level: general access sees 12 of 20 pages, specialized access sees 16, and advanced access sees all 20, including escalation processes no other team sees." loading="lazy">
+      </button>
+      <figcaption>The same navigation for everyone, with different depth underneath. The animation steps through the three access levels. Select it to see it larger.</figcaption>
+    </figure>
+
+    <div class="cs-row">
+      <div aria-hidden="true"></div>
+      <div class="stack gap-24">
+        <ol class="numbered" data-stagger="90" style="counter-reset: step 2">
+          <li data-reveal><h3>Designed a task-first IA</h3><p>Research showed agents think in terms of the action they need to take, not the team that owns it, so most labels are written as verbs: Update Profile, Book Travel, Resolve Travel Exceptions. I replaced deep hierarchies with a wide, shallow structure, so major tasks are reachable in three clicks or fewer, and front-loaded every label with its key word so agents can scan a list at a glance. Both changes reduce cognitive load and help agents answer faster mid-call.</p></li>
+          <li data-reveal><h3>Built a metadata and content model</h3><p>One topic per page, consistent templates and shared labels, plus an owner and a review date for every page.</p></li>
+          <li data-reveal><h3>Piloted where it was hardest</h3><p>The new structure went first to Travel Support, the back-office team that handled invoicing, so every new and changed booking passed through them. If it worked under that pressure, it would work for everyone.</p></li>
+        </ol>
+        <figure data-reveal>
+          <button class="frame" type="button" data-zoom="assets/img/content-model.png" data-alt="The modernized content model" aria-label="Enlarge the content model diagram">
+            <img src="assets/img/content-model.png" width="2138" height="1308" alt="Content model: a knowledge management site broken into information architecture, navigation, webpage, governance and accessibility, down to page templates and content blocks" loading="lazy">
+          </button>
+          <figcaption>The content model: how every page is typed, labelled, owned and reviewed.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="cs-row">
+      <div class="stack gap-8" data-reveal>
+        <p class="mono">03 · The outcome</p>
+        <h2 class="h-card">Proven in pilot, planned for scale</h2>
+      </div>
+      <div class="stack gap-24">
+        <div class="stats four" data-reveal>
+          <div><p class="stat-num">4.3 → 2</p><p class="stat-label">clicks to reach a topic</p></div>
+          <div><p class="stat-num">~50 sec</p><p class="stat-label">saved per lookup</p></div>
+          <div><p class="stat-num" data-count="22500" data-prefix="~$">~$22,500</p><p class="stat-label">saved a year by the 16-agent pilot team, roughly 1,100 hours</p></div>
+          <div><p class="stat-num" data-count="100" data-prefix="$" data-suffix="K+">$100K+</p><p class="stat-label">projected yearly savings at full scale, if each lookup saved just one click</p></div>
+        </div>
+        <p class="cs-text" data-reveal>In the Travel Support pilot, navigation guesswork disappeared, and leaders asked for the same landing-page pattern in every other section. The full rollout was planned and costed: across all contact-centre teams, saving just one click per lookup would save more than $100K a year. The pilot saved more than two clicks per lookup, so that projection is conservative. A company acquisition ended the program before it could be implemented.</p>
+        <div class="pair" data-reveal>
+          <figure>
+            <button class="frame" type="button" data-zoom="assets/img/nav-before.png" data-alt="Before: topics buried inside pages" aria-label="Enlarge the before navigation">
+              <img src="assets/img/nav-before.png" width="464" height="197" alt="Before: a list of pages, each hiding its topics until opened" loading="lazy">
+            </button>
+            <figcaption>Before: topics buried. Pick a page and hope.</figcaption>
+          </figure>
+          <figure>
+            <button class="frame" type="button" data-zoom="assets/img/nav-after.png" data-alt="After: every topic and task visible at a glance" aria-label="Enlarge the after navigation">
+              <img src="assets/img/nav-after.png" width="464" height="198" alt="After: a landing page listing every topic and its tasks" loading="lazy">
+            </button>
+            <figcaption>After: every topic visible at a glance.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section cta">
+  <div class="wrap stack gap-20">
+    <p class="mono" data-reveal>Keep exploring</p>
+    <a class="next" href="index.html#work" data-reveal style="--d: 80ms">Back to all work <span class="arrow" aria-hidden="true">→</span></a>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <p>© <span data-year>2026</span> Vaibhavi Bhatt</p>
+    <div class="footer-links">
+      <a href="mailto:vaibhavipathak@yahoo.com">Email</a>
+      <a href="https://www.linkedin.com/in/vaibhavi-bhatt-44175419/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="assets/docs/Vaibhavi-Bhatt-Resume.pdf" target="_blank" rel="noopener">Resume</a>
+    </div>
+  </div>
+</footer>
+
+<dialog class="lightbox" id="lightbox" aria-label="Enlarged image">
+  <button class="btn btn-ghost btn-sm lightbox-close" type="button">Close</button>
+  <img alt="">
+</dialog>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>
