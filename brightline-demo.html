@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Try the scenario: Check the AI summary | Vaibhavi Bhatt</title>
+<meta name="description" content="A 3-minute interactive branching scenario from the From Licences to Habits concept project: check an AI call summary, fix it, and choose the right customer email.">
+<meta name="theme-color" content="#1F2B47">
+<link rel="canonical" href="https://designwithv.ca/brightline-demo.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Try the scenario: Check the AI summary | Vaibhavi Bhatt">
+<meta property="og:description" content="AI drafts, the agent decides. A 3-minute interactive scenario from a concept learning experience design project.">
+<meta property="og:url" content="https://designwithv.ca/brightline-demo.html">
+<meta property="og:image" content="https://designwithv.ca/assets/img/cover-brightline.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html">Vaibhavi Bhatt</a>
+    <button class="btn btn-line-light btn-sm nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+    <nav class="nav-links" id="nav-links" aria-label="Primary">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#prototypes">Prototypes</a>
+      <a href="index.html#about">About</a>
+      <a href="assets/docs/Vaibhavi-Bhatt-Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <a class="btn btn-line-light btn-sm" href="#contact">Let's talk</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="cs-intro">
+  <div class="wrap cs-head">
+    <a class="back" href="brightline.html"><span aria-hidden="true">←</span> Back to the case study</a>
+    <p class="eyebrow">Interactive scenario · About 3 minutes</p>
+    <h1 class="h-page">Check the AI summary</h1>
+    <p class="lede">You're Priya, a contact centre agent in her second week. Copilot just drafted your call notes. Decide whether to trust, edit or reject them, then pick the right email for an upset customer.</p>
+  </div>
+</section>
+
+<section class="section bg-grey demo-section">
+  <div class="wrap stack gap-24">
+
+    <!-- Where this sits in the pathway -->
+    <figure class="pw-strip" aria-label="Where this scenario sits in the learning pathway">
+      <ol>
+        <li class="done"><span class="pws-n">1</span><span class="pws-t">Safe-use rules</span></li>
+        <li class="done"><span class="pws-n">2</span><span class="pws-t">Ask the assistant</span></li>
+        <li class="here" aria-current="step"><span class="pws-n">3</span><span class="pws-t">Check AI summaries <em>You are here</em></span></li>
+        <li><span class="pws-n">4</span><span class="pws-t">Draft customer emails</span></li>
+        <li><span class="pws-n">5</span><span class="pws-t">Become a champion</span></li>
+      </ol>
+      <figcaption>Step 3 of the five-step learning pathway, shortened for this demo.</figcaption>
+    </figure>
+
+    <!-- Player -->
+    <div class="player" id="player" data-scenario>
+      <div class="player-bar">
+        <p class="player-step" aria-live="polite"><span data-step-label>Step 1 of 5</span></p>
+        <div class="player-progress" aria-hidden="true"><span data-progress></span></div>
+        <p class="player-score" aria-live="polite">Score <strong data-score>0</strong> / 20</p>
+      </div>
+
+      <noscript><p class="player-noscript">This scenario needs JavaScript. The full script is in the case study's storyboard.</p></noscript>
+
+      <!-- Slide 1: The call -->
+      <section class="slide" data-slide="1" aria-labelledby="s1-title">
+        <h2 class="slide-title" id="s1-title" tabindex="-1">A cancelled flight</h2>
+        <div class="slide-grid">
+          <div class="who">
+            <span class="avatar avatar-p" aria-hidden="true">P</span>
+            <p class="bubble"><strong>Priya:</strong> "Call's done. Copilot drafted the summary. Let me check it before I save."</p>
+          </div>
+          <div class="card-doc facts">
+            <p class="card-k">Call facts</p>
+            <dl>
+              <div><dt>Customer</dt><dd>Mrs. Okafor</dd></div>
+              <div><dt>Issue</dt><dd>Flight to Vancouver cancelled by the airline</dd></div>
+              <div><dt>Refund on account</dt><dd><strong>$54.00</strong> (taxes and fees)</dd></div>
+              <div><dt>Points</dt><dd>12,000 returned to her balance</dd></div>
+              <div><dt>Next step</dt><dd>Refund posts in 5 to 7 business days</dd></div>
+            </dl>
+          </div>
+        </div>
+        <div class="choices"><button class="btn btn-coral" type="button" data-go="2">Check the summary</button></div>
+      </section>
+
+      <!-- Slide 2: Decision 1 -->
+      <section class="slide" data-slide="2" aria-labelledby="s2-title" hidden>
+        <h2 class="slide-title" id="s2-title" tabindex="-1">What do you do with this summary?</h2>
+        <div class="slide-grid">
+          <div class="card-doc facts small-facts">
+            <p class="card-k">Call facts</p>
+            <dl>
+              <div><dt>Refund on account</dt><dd><strong>$54.00</strong></dd></div>
+              <div><dt>Points</dt><dd>12,000 returned</dd></div>
+              <div><dt>Next step</dt><dd>5 to 7 business days</dd></div>
+            </dl>
+          </div>
+          <div class="card-doc draft">
+            <p class="card-k">Copilot draft · call summary</p>
+            <p>[CUSTOMER] called about a flight to Vancouver cancelled by the airline. Refunded <strong>$45.00</strong> in taxes and fees. 12,000 points returned to balance. Refund posts in 5 to 7 business days.</p>
+          </div>
+        </div>
+        <div class="who coach">
+          <span class="avatar avatar-m" aria-hidden="true">M</span>
+          <p class="bubble"><strong>Marcus, your team lead:</strong> "Numbers first."</p>
+        </div>
+        <div class="choices" role="group" aria-label="Your choice">
+          <button class="btn btn-line" type="button" data-choice="d1-send">Send it, it looks right</button>
+          <button class="btn btn-line" type="button" data-choice="d1-edit">Edit it before saving</button>
+          <button class="btn btn-line" type="button" data-choice="d1-reject">Reject it and ask Marcus</button>
+        </div>
+
+        <div class="fb fb-wrong" data-fb="d1-send" hidden>
+          <p class="fb-verdict" tabindex="-1"><span aria-hidden="true">✕</span> Next day, Mrs. Okafor calls back, upset.</p>
+          <p>Her notes say $45. Her account says $54. Now someone has to correct the record and apologize. The draft swapped two digits: AI often gets numbers wrong, so check every amount against the call facts.</p>
+          <button class="btn btn-coral" type="button" data-retry>Try again</button>
+        </div>
+        <div class="fb fb-right" data-fb="d1-edit" hidden>
+          <p class="fb-verdict" tabindex="-1"><span aria-hidden="true">✓</span> Good call.</p>
+          <p>One thing is wrong, and you can fix it yourself in seconds.</p>
+          <button class="btn btn-coral" type="button" data-go="3">Fix it</button>
+        </div>
+        <div class="fb fb-wrong" data-fb="d1-reject" hidden>
+          <p class="fb-verdict" tabindex="-1"><span aria-hidden="true">✕</span> Marcus: "You don't need me for a number you can check."</p>
+          <p>One amount is wrong. That's a quick edit, not an escalation.</p>
+          <button class="btn btn-coral" type="button" data-retry>Try again</button>
+        </div>
+      </section>
+
+      <!-- Slide 3: Fix it -->
+      <section class="slide" data-slide="3" aria-labelledby="s3-title" hidden>
+        <h2 class="slide-title" id="s3-title" tabindex="-1">Which refund amount should the summary show?</h2>
+        <div class="card-doc draft">
+          <p class="card-k">Copilot draft · call summary</p>
+          <p>[CUSTOMER] called about a flight to Vancouver cancelled by the airline. Refunded <span class="blank" data-amount>$<span class="sr-only">amount to fix</span>??.??</span> in taxes and fees. 12,000 points returned to balance. Refund posts in 5 to 7 business days.</p>
+        </div>
+        <div class="choices" role="group" aria-label="Choose the amount">
+          <button class="btn btn-line" type="button" data-choice="d1b-45">$45.00</button>
+          <button class="btn btn-line" type="button" data-choice="d1b-54">$54.00</button>
+        </div>
+        <div class="fb fb-wrong" data-fb="d1b-45" hidden>
+          <p class="fb-verdict" tabindex="-1"><span aria-hidden="true">✕</span> Look again.</p>
+          <p>The call facts say $54.00. The draft has the digits swapped.</p>
+          <button class="btn btn-coral" type="button" data-retry>Try again</button>
+        </div>
+        <div class="fb fb-right" data-fb="d1b-54" hidden>
+          <p class="fb-verdict" tabindex="-1"><span aria-hidden="true">✓</span> Fixed.</p>
+          <p>The summary now matches the account. That's the habit: read the draft against the call, not against your memory.</p>
+          <button class="btn btn-coral" type="button" data-go="4">Next</button>
+        </div>
+      </section>
+
+      <!-- Slide 4: Decision 2 -->
+      <section class="slide" data-slide="4" aria-labelledby="s4-title" hidden>
+        <h2 class="slide-title" id="s4-title" tabindex="-1">Which email do you send?</h2>
+        <p class="slide-intro">Mrs. Okafor asked for an email confirming her refund. Copilot drafted three versions.</p>
+        <div class="emails" role="group" aria-label="Choose an email">
+          <button class="email-opt" type="button" data-choice="d2-a"><span class="email-k">Email A</span>"Per policy, refunds take 5-7 business days. No further action is required on your part."</button>
+          <button class="email-opt" type="button" data-choice="d2-b"><span class="email-k">Email B</span>"I'm sorry your trip was cancelled. Your $54.00 refund is on its way and should arrive within 5 to 7 business days. Your 12,000 points are already back in your account."</button>
+          <button class="email-opt" type="button" data-choice="d2-c"><span class="email-k">Email C</span>"Sorry for the trouble! Your refund will be there by tomorrow, guaranteed."</button>
+        </div>
+        <div class="fb fb-wrong" data-fb="d2-a" hidden>
+          <p class="fb-verdict" tabindex="-1"><span aria-hidden="true">✕</span> Accurate, but cold.</p>
+          <p>For an upset customer, this reads like a form letter. Lead with empathy, then the facts.</p>
+          <button class="btn btn-coral" type="button" data-go="5">See your result</button>
+        </div>
+        <div class="fb fb-right" data-fb="d2-b" hidden>
+          <p class="fb-verdict" tabindex="-1"><span aria-hidden="true">✓</span> That's the one.</p>
+          <p>It's kind, the amount and timeline match the account, and it promises nothing extra.</p>
+          <button class="btn btn-coral" type="button" data-go="5">See your result</button>
+        </div>
+        <div class="fb fb-wrong" data-fb="d2-c" hidden>
+          <p class="fb-verdict" tabindex="-1"><span aria-hidden="true">✕</span> A promise you can't keep.</p>
+          <p>"By tomorrow, guaranteed" isn't policy. When the money doesn't arrive, she'll call back angrier.</p>
+          <button class="btn btn-coral" type="button" data-go="5">See your result</button>
+        </div>
+      </section>
+
+      <!-- Slide 5: Result -->
+      <section class="slide" data-slide="5" aria-labelledby="s5-title" hidden>
+        <h2 class="slide-title" id="s5-title" tabindex="-1">Your result</h2>
+        <div class="result" data-result="pass" hidden>
+          <p class="result-score"><span data-score-text>20</span> / 20</p>
+          <p class="result-head">Nice work.</p>
+          <p>You caught the wrong amount and kept the email kind and accurate. That's AI drafting and you deciding.</p>
+        </div>
+        <div class="result" data-result="retry" hidden>
+          <p class="result-score"><span data-score-text>10</span> / 20</p>
+          <p class="result-head">Almost.</p>
+          <p data-retry-tip>Try the call once more: numbers first, then tone.</p>
+          <div class="choices"><button class="btn btn-line" type="button" data-restart>Try the call again</button></div>
+        </div>
+
+        <div class="takeaway">
+          <p class="eyebrow coral">Take it with you</p>
+          <p class="takeaway-head">Check before you send</p>
+          <p>Six checks, about 30 seconds: facts, amounts and dates, promises, tone, personal details, and your name on it. In the full program, this job aid is pinned in Teams.</p>
+          <div class="btn-row">
+            <a class="btn btn-coral" href="assets/docs/check-before-you-send.pdf" target="_blank" rel="noopener">Download the job aid (PDF)</a>
+            <button class="btn btn-line" type="button" data-restart>Play again</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Design notes for reviewers -->
+    <div class="design-notes">
+      <h2 class="h-card">Design notes</h2>
+      <ul class="ticks">
+        <li><strong>One skill, practised for real:</strong> compare an AI draft with the call facts, then trust, edit or reject. It traces to action 3 on the <a href="brightline.html#discovery">action map</a>.</li>
+        <li><strong>Consequence first, then the reason:</strong> wrong choices show what would happen on the job, not just "incorrect".</li>
+        <li><strong>Easy to hard:</strong> spot a wrong number first, then judge tone and promises.</li>
+        <li><strong>Scoring that rewards judgment:</strong> a second try on the first decision earns no points, so 20/20 means you caught it the first time.</li>
+        <li><strong>Accessible:</strong> real buttons, full keyboard use, focus moves to each feedback message, and feedback uses words and symbols, not colour alone.</li>
+      </ul>
+      <p class="notice-inline"><strong>Concept project.</strong> Brightline Support and its customers are fictional. This interactive prototype was built with AI-assisted development from my storyboard; in the full program it's an Articulate Storyline scenario with four calls.</p>
+      <div class="btn-row">
+        <a class="btn btn-line" href="brightline.html">Read the case study</a>
+        <a class="btn btn-line" href="assets/docs/brightline/storyboard.pdf" target="_blank" rel="noopener">See the full storyboard <span class="ext">(PDF)</span></a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="footer" id="contact">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="stack gap-12">
+        <h2 class="h-cta">Good information doesn't happen by accident. <span class="accent">It's designed.</span></h2>
+        <p class="sub">Have a content problem, a learning gap, or an AI-readiness question? Let's talk.</p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-coral" href="mailto:vaibhavipathak@yahoo.com">Email me</a>
+        <a class="btn btn-line-light" href="https://www.linkedin.com/in/vaibhavi-bhatt-44175419/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-inner">
+      <p>© <span data-year>2026</span> Vaibhavi Bhatt · designwithv.ca</p>
+      <div class="footer-links">
+        <a href="mailto:vaibhavipathak@yahoo.com">Email</a>
+        <a href="https://www.linkedin.com/in/vaibhavi-bhatt-44175419/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="assets/docs/Vaibhavi-Bhatt-Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+<script src="js/scenario.js" defer></script>
+</body>
+</html>

@@ -8,11 +8,14 @@ Portfolio site for Vaibhavi Bhatt. Plain HTML, CSS and JavaScript: no build step
 |---|---|
 | `index.html` | Home page |
 | `km-modernization.html` | KM Modernization case study |
+| `brightline.html` | From Licences to Habits case study (concept project) |
+| `brightline-demo.html` | Playable scenario from the Brightline case study |
 | `404.html` | Page shown for broken links |
 | `css/styles.css` | All styling. Colours and fonts are variables at the top. |
-| `js/main.js` | Motion and interactions (scroll reveals, menu, image viewer, the sitemap's "View as" switch) |
+| `js/scenario.js` | Logic for the playable scenario (choices, feedback, score) |
+| `js/main.js` | Motion and interactions (scroll reveals, menu, image viewer, case study tabs and expand-all) |
 | `assets/img/` | Images |
-| `assets/docs/` | PDFs (resume, roadmap, training) |
+| `assets/docs/` | PDFs (resume, roadmap, training, Brightline job aid) |
 | `CNAME` | Tells GitHub Pages the site lives at designwithv.ca |
 | `.nojekyll`, `robots.txt`, `sitemap.xml` | Housekeeping for GitHub Pages and search engines |
 
@@ -48,7 +51,7 @@ Do this only once the GitHub address above looks right. The current WordPress si
 
 - **Text:** open the `.html` file in any text editor, change the words, and upload the file to the repository again (same name, it replaces the old one).
 - **A PDF or image:** upload the new file to the same folder with the same file name.
-- **Colours:** change the values at the top of `css/styles.css`. `--accent` is the blue.
+- **Colours:** change the values at the top of `css/styles.css`: `--navy`, `--coral`, `--coral-light`, `--coral-tint`, and the greys. Keep navy (not white) text on coral so it stays readable.
 
 ## Adding a new project later
 
@@ -56,14 +59,14 @@ Do this only once the GitHub address above looks right. The current WordPress si
 
 1. Put the cover image in `assets/img/`, ideally about 1280 pixels wide and saved as JPG or WebP.
 2. Open `index.html` and find the `<!-- Prototypes -->` section (or `<!-- Recent work -->` for bigger pieces).
-3. Copy one whole `<article class="card ...">` ... `</article>` block, paste it next to the others, and change the image file name, title, description, tool chips and links.
+3. Copy one whole `<article class="proto">` (prototype) or `<article class="tile ...">` (recent work) ... `</article>` block, paste it next to the others, and change the image file name, title, description, tool chips and links.
 4. Upload `index.html` and the new image to GitHub.
 
 The grid rearranges itself, so a fourth or fifth card needs no layout changes.
 
 **A full case study page:**
 
-1. Make a copy of `km-modernization.html` with a new name, for example `new-project.html`, and replace its text and images.
+1. Make a copy of `km-modernization.html` or `brightline.html` with a new name, for example `new-project.html`, and replace its text and images.
 2. Link to it from a card on the home page, the same way the KM Modernization card links to `km-modernization.html`.
 3. Add the new page's address to `sitemap.xml` so search engines find it.
 

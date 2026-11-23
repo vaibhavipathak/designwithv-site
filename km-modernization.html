@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>KM Modernization case study | Vaibhavi Bhatt</title>
 <meta name="description" content="How a legacy knowledge base was redesigned around a permission-based, task-first structure and proven in a 16-agent pilot.">
-<meta name="theme-color" content="#040607">
+<meta name="theme-color" content="#1F2B47">
 <link rel="canonical" href="https://designwithv.ca/km-modernization.html">
 <meta property="og:type" content="article">
 <meta property="og:title" content="KM Modernization case study | Vaibhavi Bhatt">
@@ -16,7 +16,7 @@
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 <script>document.documentElement.classList.add('js');</script>
 </head>
@@ -25,13 +25,14 @@
 
 <header class="nav">
   <div class="wrap nav-inner">
-    <a class="brand" href="index.html"><span class="brand-dot" aria-hidden="true"></span>Vaibhavi Bhatt</a>
-    <button class="btn btn-ghost btn-sm nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+    <a class="brand" href="index.html">Vaibhavi Bhatt</a>
+    <button class="btn btn-line-light btn-sm nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
     <nav class="nav-links" id="nav-links" aria-label="Primary">
       <a href="index.html#work">Work</a>
       <a href="index.html#prototypes">Prototypes</a>
       <a href="index.html#about">About</a>
-      <a class="btn btn-ghost btn-sm" href="index.html#contact">Contact</a>
+      <a href="assets/docs/Vaibhavi-Bhatt-Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <a class="btn btn-line-light btn-sm" href="#contact">Let's talk</a>
     </nav>
   </div>
   <div class="progress" aria-hidden="true"></div>
@@ -39,7 +40,7 @@
 
 <main id="main">
 
-<section>
+<section class="cs-intro">
   <div class="wrap cs-head">
     <a class="back" href="index.html#work"><span aria-hidden="true">←</span> All work</a>
     <p class="mono" data-reveal>Case study · Information architecture</p>
@@ -52,7 +53,9 @@
       <div><dt class="mono">Tools</dt><dd>SharePoint, Confluence, Lucidchart, Figma, SurveyMonkey, Optimal Workshop, Tableau, Genesys and SpeechMiner</dd></div>
     </dl>
   </div>
+</section>
 
+<section>
   <!-- At a glance: team-based versus task-first -->
   <div class="wrap cs-hero">
     <div class="ba" data-stagger="140">
@@ -219,19 +222,31 @@
 
 </main>
 
-<footer class="footer">
-  <div class="wrap footer-inner">
-    <p>© <span data-year>2026</span> Vaibhavi Bhatt</p>
-    <div class="footer-links">
-      <a href="mailto:vaibhavipathak@yahoo.com">Email</a>
-      <a href="https://www.linkedin.com/in/vaibhavi-bhatt-44175419/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="assets/docs/Vaibhavi-Bhatt-Resume.pdf" target="_blank" rel="noopener">Resume</a>
+<footer class="footer" id="contact">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="stack gap-12">
+        <h2 class="h-cta">Good information doesn't happen by accident. <span class="accent">It's designed.</span></h2>
+        <p class="sub">Have a content problem, a learning gap, or an AI-readiness question? Let's talk.</p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-coral" href="mailto:vaibhavipathak@yahoo.com">Email me</a>
+        <a class="btn btn-line-light" href="https://www.linkedin.com/in/vaibhavi-bhatt-44175419/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-inner">
+      <p>© <span data-year>2026</span> Vaibhavi Bhatt · designwithv.ca</p>
+      <div class="footer-links">
+        <a href="mailto:vaibhavipathak@yahoo.com">Email</a>
+        <a href="https://www.linkedin.com/in/vaibhavi-bhatt-44175419/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="assets/docs/Vaibhavi-Bhatt-Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      </div>
     </div>
   </div>
 </footer>
 
 <dialog class="lightbox" id="lightbox" aria-label="Enlarged image">
-  <button class="btn btn-ghost btn-sm lightbox-close" type="button">Close</button>
+  <button class="btn btn-sm lightbox-close" type="button">Close</button>
   <img alt="">
 </dialog>
 
