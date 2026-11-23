@@ -3,7 +3,6 @@
    and all motion is skipped when the visitor prefers reduced motion. */
 (function () {
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
   var nav = document.querySelector('.nav');
 
   /* Nav: blurred bar after scrolling, plus reading progress on the case study */
@@ -99,25 +98,6 @@
     revealEls.forEach(function (el) { el.classList.add('in'); });
   }
 
-  /* Pointer effects: hero glow and card spotlight (mouse only) */
-  if (canHover && !reduce) {
-    var hero = document.querySelector('.hero');
-    if (hero) {
-      hero.addEventListener('pointermove', function (e) {
-        var r = hero.getBoundingClientRect();
-        hero.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-        hero.style.setProperty('--my', (e.clientY - r.top) + 'px');
-      });
-    }
-    document.querySelectorAll('.card').forEach(function (card) {
-      card.addEventListener('pointermove', function (e) {
-        var r = card.getBoundingClientRect();
-        card.style.setProperty('--x', (e.clientX - r.left) + 'px');
-        card.style.setProperty('--y', (e.clientY - r.top) + 'px');
-      });
-    });
-  }
-
   /* Lightbox: any element with data-zoom opens its image full screen */
   var box = document.getElementById('lightbox');
   if (box && typeof box.showModal === 'function') {
@@ -169,6 +149,64 @@
     });
     setView('g');
   }
+
+
+  /* Tabs (case study): arrow keys move between tabs; with JS off all panels show */
+  document.querySelectorAll('[data-tabs]').forEach(function (wrap) {
+    var tabs = Array.prototype.slice.call(wrap.querySelectorAll('[role="tab"]'));
+    function select(tab, focus) {
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.tabIndex = on ? 0 : -1;
+        var panel = document.getElementById(t.getAttribute('aria-controls'));
+        if (panel) panel.hidden = !on;
+      });
+      if (focus) tab.focus();
+    }
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { select(t, false); });
+      t.addEventListener('keydown', function (e) {
+        var n = null;
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') n = tabs[(i + 1) % tabs.length];
+        if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') n = tabs[(i - 1 + tabs.length) % tabs.length];
+        if (e.key === 'Home') n = tabs[0];
+        if (e.key === 'End') n = tabs[tabs.length - 1];
+        if (n) { e.preventDefault(); select(n, true); }
+      });
+    });
+    wrap.classList.add('is-ready');
+    select(tabs[0], false);
+  });
+
+  /* Accordions: expand / collapse all, and open a section when a link points to it */
+  var accs = document.querySelectorAll('details.acc');
+  var allBtn = document.querySelector('[data-expand-all]');
+  function syncAllBtn() {
+    if (!allBtn) return;
+    var allOpen = Array.prototype.every.call(accs, function (d) { return d.open; });
+    allBtn.textContent = allOpen ? 'Collapse all' : 'Expand all';
+    allBtn.setAttribute('aria-pressed', allOpen ? 'true' : 'false');
+  }
+  if (allBtn) {
+    allBtn.addEventListener('click', function () {
+      var open = allBtn.getAttribute('aria-pressed') !== 'true';
+      accs.forEach(function (d) { d.open = open; });
+      syncAllBtn();
+    });
+    accs.forEach(function (d) { d.addEventListener('toggle', syncAllBtn); });
+    syncAllBtn();
+  }
+  function openFromHash(hash) {
+    if (!hash || hash.length < 2) return;
+    var el = document.getElementById(decodeURIComponent(hash.slice(1)));
+    if (el && el.tagName === 'DETAILS') { el.open = true; }
+  }
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function () { openFromHash(a.getAttribute('href')); });
+  });
+  openFromHash(window.location.hash);
+  window.addEventListener('hashchange', function () { openFromHash(window.location.hash); });
 
   /* Footer year */
   document.querySelectorAll('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
