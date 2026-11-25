@@ -64,15 +64,27 @@
   <div class="wrap">
     <div class="section-head" data-reveal>
       <p class="eyebrow">01 · Recent work</p>
-      <h2 class="h-section">Two deep dives, two quick reads.</h2>
+      <h2 class="h-section">Three deep dives, two quick reads.</h2>
+      <p class="section-sub">They connect: a solid knowledge base first, then a roadmap for AI, then AI that people trust and use.</p>
     </div>
+    <ol class="journey" aria-label="How the projects connect" data-reveal>
+      <li><span class="j-step">Foundation</span><a href="#t-km">KM Modernization</a></li>
+      <li><span class="j-step">Plan</span><a href="#t-roadmap">AI Maturity Roadmap</a></li>
+      <li><span class="j-step">Crawl · AI adoption</span><a href="#t-brightline">From Licences to Habits</a><a href="#t-prompt">Prompt like a Pro</a></li>
+      <li><span class="j-step">Walk · AI on governed knowledge</span><a href="#t-atp">Ask the Playbook</a></li>
+    </ol>
   </div>
 
   <div class="wrap">
+
+    <div class="tile-group" data-reveal>
+      <h3 class="group-head">Foundation first</h3>
+      <p class="group-sub">AI is only as good as the knowledge underneath it. The roadmap builds on the knowledge base.</p>
+    </div>
     <div class="tiles">
 
-      <!-- Case study 1: KM Modernization (real work) -->
-      <article class="tile tile-tint" data-reveal>
+      <!-- Case study: KM Modernization (real work) -->
+      <article class="tile tile-tint" id="t-km" data-reveal>
         <a class="cover" href="km-modernization.html" tabindex="-1" aria-hidden="true">
           <img src="assets/img/cover-km.jpg" width="1280" height="956" alt="" loading="lazy">
         </a>
@@ -83,15 +95,37 @@
           <div><p class="stat-num">4.3 → 2</p><p class="stat-label">clicks to a topic</p></div>
           <div><p class="stat-num">~$22.5K</p><p class="stat-label">saved a year in the pilot</p></div>
         </div>
+        <p class="story-line">The foundation for the AI Maturity Roadmap</p>
         <div class="go-row"><a class="go" href="km-modernization.html">Read case study <span class="arrow" aria-hidden="true">→</span></a></div>
       </article>
 
-      <!-- Case study 2: Brightline (concept project) -->
-      <article class="tile tile-navy" data-reveal style="--d: 100ms">
+      <!-- Quick read: AI Maturity Roadmap -->
+      <article class="tile tile-coral" id="t-roadmap" data-reveal style="--d: 100ms">
+        <a class="cover" href="assets/docs/AI-Maturity-Roadmap.pdf" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+          <img src="assets/img/cover-roadmap.jpg" width="1280" height="956" alt="" loading="lazy">
+        </a>
+        <p class="eyebrow">Quick read · AI strategy</p>
+        <h3 class="h-card-lg">AI Maturity Roadmap</h3>
+        <p class="desc">A phased plan from content repository to real-time decision support, with governance and human oversight built in.</p>
+        <p class="phases"><span class="phases-label">Three phases:</span> Crawl <span aria-hidden="true">→</span> Walk <span aria-hidden="true">→</span> Run</p>
+        <p class="story-line">Builds on KM Modernization. The Brightline projects show Crawl and Walk in action.</p>
+        <div class="go-row"><a class="go" href="assets/docs/AI-Maturity-Roadmap.pdf" target="_blank" rel="noopener">View the roadmap (PDF) <span class="arrow" aria-hidden="true">→</span></a></div>
+      </article>
+
+    </div>
+
+    <div class="tile-group" data-reveal>
+      <h3 class="group-head">The Brightline story</h3>
+      <p class="group-sub">One fictional contact centre, two projects: getting agents to use AI, then building the assistant they needed.</p>
+    </div>
+    <div class="tiles">
+
+      <!-- Case study: Brightline part 1 (concept project) -->
+      <article class="tile tile-navy" id="t-brightline" data-reveal>
         <a class="cover" href="brightline.html" tabindex="-1" aria-hidden="true">
           <img src="assets/img/cover-brightline.jpg" width="1280" height="720" alt="" loading="lazy">
         </a>
-        <p class="eyebrow">Concept project · Learning experience design</p>
+        <p class="eyebrow">Part 1 · Concept project · Learning experience design</p>
         <h3 class="h-card-lg">From Licences to Habits</h3>
         <p class="desc">Copilot was rolled out and almost no one used it. I found out why, then designed the learning and change program to turn licences into daily habits.</p>
         <div class="stack gap-8">
@@ -101,34 +135,52 @@
             <div><p class="stat-num">30% less</p><p class="stat-label">after-call writing</p></div>
           </div>
         </div>
+        <p class="story-line">It recommends an AI assistant. Part 2 builds it.</p>
         <div class="go-row"><a class="go" href="brightline.html">Read case study <span class="arrow" aria-hidden="true">→</span></a><a class="go" href="brightline-demo.html">Try the scenario <span class="arrow" aria-hidden="true">→</span></a></div>
       </article>
 
-      <!-- Quick read: AI Maturity Roadmap -->
-      <article class="tile tile-coral" data-reveal>
-        <a class="cover" href="assets/docs/AI-Maturity-Roadmap.pdf" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
-          <img src="assets/img/cover-roadmap.jpg" width="1280" height="956" alt="" loading="lazy">
+      <!-- Case study: Brightline part 2, Ask the Playbook (concept project, real build) -->
+      <article class="tile tile-white tile-feature" id="t-atp" data-reveal style="--d: 100ms">
+        <a class="cover" href="ask-the-playbook.html" tabindex="-1" aria-hidden="true">
+          <img src="assets/img/cover-ask-the-playbook.jpg" width="1280" height="720" alt="" loading="lazy">
         </a>
-        <p class="eyebrow">AI strategy</p>
-        <h3 class="h-card-lg">AI Maturity Roadmap</h3>
-        <p class="desc">A phased plan from content repository to real-time decision support, with governance and human oversight built in.</p>
-        <ul class="pills" aria-label="Phases"><li>CRAWL</li><li>WALK</li><li>RUN</li></ul>
-        <div class="go-row"><a class="go" href="assets/docs/AI-Maturity-Roadmap.pdf" target="_blank" rel="noopener">View the roadmap (PDF) <span class="arrow" aria-hidden="true">→</span></a></div>
+        <p class="eyebrow coral">Part 2 · Concept project, real build · KM and AI automation</p>
+        <h3 class="h-card-lg">Ask the Playbook</h3>
+        <p class="desc">A chatbot that answers agents only from owned articles, plus a daily check that keeps them fresh. Built, tested and live.</p>
+        <div class="stack gap-8">
+          <p class="stats-label">Tested on 20 questions</p>
+          <div class="stats">
+            <div><p class="stat-num">95%</p><p class="stat-label">answers fully correct</p></div>
+            <div><p class="stat-num">100%</p><p class="stat-label">answers safe</p></div>
+          </div>
+        </div>
+        <p class="story-line">The assistant Part 1 recommended, now working.</p>
+        <div class="go-row"><a class="go" href="ask-the-playbook.html">Read case study <span class="arrow" aria-hidden="true">→</span></a><a class="go" href="ask-the-playbook.html#demo">Try the live demo <span class="arrow" aria-hidden="true">→</span></a></div>
       </article>
 
+    </div>
+
+    <div class="tile-group" data-reveal>
+      <h3 class="group-head">A real-world result</h3>
+      <p class="group-sub">AI adoption in practice, on a real team.</p>
+    </div>
+    <div class="tiles">
+
       <!-- Quick read: Prompt like a Pro (real result) -->
-      <article class="tile tile-white" data-reveal style="--d: 100ms">
+      <article class="tile tile-white tile-wide" id="t-prompt" data-reveal>
         <a class="cover" href="assets/docs/Prompt-like-a-Pro.pdf" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
           <img src="assets/img/cover-prompt.jpg" width="1280" height="956" alt="" loading="lazy">
         </a>
-        <p class="eyebrow coral">AI enablement · Real-world result</p>
-        <h3 class="h-card-lg">Prompt like a Pro</h3>
-        <p class="desc">One prompt template marked up every terminology change for a rebrand. The team wanted to learn how, so I turned the method into a training for other departments.</p>
-        <div class="stats">
-          <div><p class="stat-num">~17%</p><p class="stat-label">less drafting time</p></div>
-          <div><p class="stat-num">250+</p><p class="stat-label">pages marked up</p></div>
+        <div class="tile-text">
+          <p class="eyebrow coral">Quick read · AI enablement · Real-world result</p>
+          <h3 class="h-card-lg">Prompt like a Pro</h3>
+          <p class="desc">One prompt template marked up every terminology change for a rebrand. The team wanted to learn how, so I turned the method into a training for other departments.</p>
+          <div class="stats">
+            <div><p class="stat-num">~17%</p><p class="stat-label">less drafting time</p></div>
+            <div><p class="stat-num">250+</p><p class="stat-label">pages marked up</p></div>
+          </div>
+          <div class="go-row"><a class="go" href="assets/docs/Prompt-like-a-Pro.pdf" target="_blank" rel="noopener">View the training (PDF) <span class="arrow" aria-hidden="true">→</span></a></div>
         </div>
-        <div class="go-row"><a class="go" href="assets/docs/Prompt-like-a-Pro.pdf" target="_blank" rel="noopener">View the training (PDF) <span class="arrow" aria-hidden="true">→</span></a></div>
       </article>
 
     </div>

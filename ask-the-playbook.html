@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ask the Playbook: a knowledge assistant with content ownership built in (concept case study) | Vaibhavi Bhatt</title>
+<meta name="description" content="A working knowledge management and AI automation prototype: a chatbot that answers only from owned process articles, a daily freshness check that routes issues to owners, and an eval that tests it all.">
+<meta name="theme-color" content="#1F2B47">
+<link rel="canonical" href="https://designwithv.ca/ask-the-playbook.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ask the Playbook | Vaibhavi Bhatt">
+<meta property="og:description" content="A chatbot agents can trust: answers from owned articles only, a daily freshness check, and 20 test questions to prove it. Try the live demo.">
+<meta property="og:url" content="https://designwithv.ca/ask-the-playbook.html">
+<meta property="og:image" content="https://designwithv.ca/assets/img/atp/glance.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html">Vaibhavi Bhatt</a>
+    <button class="btn btn-line-light btn-sm nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+    <nav class="nav-links" id="nav-links" aria-label="Primary">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#prototypes">Prototypes</a>
+      <a href="index.html#about">About</a>
+      <a href="assets/docs/Vaibhavi-Bhatt-Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <a class="btn btn-line-light btn-sm" href="#contact">Let's talk</a>
+    </nav>
+  </div>
+  <div class="progress" aria-hidden="true"></div>
+</header>
+
+<main id="main">
+
+<!-- ===================== SNAPSHOT ===================== -->
+<section class="cs-intro">
+  <div class="wrap cs-head">
+    <a class="back" href="index.html#work"><span aria-hidden="true">←</span> All work</a>
+    <p class="eyebrow" data-reveal>Concept project · Knowledge management and AI automation</p>
+    <h1 class="h-page" data-reveal style="--d: 60ms">Ask the Playbook</h1>
+    <p class="cs-subtitle" data-reveal style="--d: 100ms">A knowledge assistant agents can trust, with content ownership built in</p>
+    <p class="lede" data-reveal style="--d: 140ms">I built a chatbot that answers support agents only from owned process articles, a daily check that keeps those articles fresh, and a 20-question test that proves both work.</p>
+    <dl class="meta" data-reveal style="--d: 200ms">
+      <div><dt class="mono">My role</dt><dd>Me, end to end: knowledge management, automation design, testing</dd></div>
+      <div><dt class="mono">Audience</dt><dd>Frontline contact centre agents (fictional company)</dd></div>
+      <div><dt class="mono">Approach</dt><dd>Design thinking, retrieval-augmented generation (RAG), content ownership model, eval-driven testing</dd></div>
+      <div><dt class="mono">Tools</dt><dd>n8n, Pinecone, Google Gemini. Built with Claude as my build partner. Video voice by ElevenLabs.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section bg-white snap">
+  <div class="wrap stack gap-32">
+
+    <div class="notice" role="note" data-reveal>
+      <p class="eyebrow coral">Concept project, real build</p>
+      <p>Brightline Support is a fictional contact centre, and its 12 articles, people and policies are made up. <strong>The workflows, tests and results are real:</strong> every number on this page comes from the working prototype.</p>
+    </div>
+
+    <div class="stack gap-16" data-reveal>
+      <p class="eyebrow">Results from testing</p>
+      <ul class="target-cards">
+        <li><p class="stat-num">95%</p><p class="stat-label">answers fully correct</p></li>
+        <li><p class="stat-num">100%</p><p class="stat-label">answers safe</p></li>
+        <li><p class="stat-num">100%</p><p class="stat-label">answers with a source</p></li>
+        <li><p class="stat-num">0</p><p class="stat-label">unowned articles left</p></li>
+      </ul>
+    </div>
+
+    <!-- Live demo -->
+    <div class="stack gap-12" data-reveal id="demo">
+      <p class="eyebrow">Try the live demo</p>
+      <div class="pb-chat" data-pb-chat data-endpoint="https://vaibhavib.app.n8n.cloud/webhook/29b45781-a33f-4901-a3bf-6d4a53b8c6c0/chat" aria-busy="false">
+        <div class="pb-head">
+          <div class="stack">
+            <p class="eyebrow">Live · fictional demo</p>
+            <p class="pb-title">Ask the Playbook</p>
+          </div>
+          <span class="pb-live">Connected to the working prototype</span>
+        </div>
+        <div class="pb-log" role="log" aria-live="polite" aria-label="Conversation with Ask the Playbook" tabindex="0"></div>
+        <div class="pb-try">
+          <p class="eyebrow">Click a question to try it</p>
+          <button class="pb-more" type="button" data-pb-more>More examples</button>
+        </div>
+        <div class="pb-chips"></div>
+        <form class="pb-form">
+          <label class="sr-only" for="pb-input">Or type your own question</label>
+          <input class="pb-input" id="pb-input" type="text" maxlength="400" autocomplete="off" placeholder="Or type your own question…">
+          <button class="btn btn-coral btn-sm pb-send" type="submit">Send</button>
+        </form>
+        <p class="sr-only pb-status" role="status"></p>
+        <p class="pb-foot">Answers come only from 12 made-up articles, so please don't enter real personal data. Replies take 5 to 20 seconds. Not loading? <a href="https://vaibhavib.app.n8n.cloud/webhook/29b45781-a33f-4901-a3bf-6d4a53b8c6c0/chat" target="_blank" rel="noopener">Open the backup chat page</a>.</p>
+      </div>
+      <noscript><p>The live demo needs JavaScript. You can use the <a href="https://vaibhavib.app.n8n.cloud/webhook/29b45781-a33f-4901-a3bf-6d4a53b8c6c0/chat">backup chat page</a> instead.</p></noscript>
+    </div>
+
+    <!-- Video walkthrough: hidden until recorded. Restore this block when the video is ready.
+    
+    <div class="video-slot" data-reveal id="video">
+      <p class="eyebrow">Video walkthrough · 2.5 minutes</p>
+      <p><strong>Coming soon.</strong> A narrated tour of the chatbot, the daily check and the test results, for when the live demo isn't handy.</p>
+    </div>
+    -->
+
+    <div class="proven" data-reveal>
+      <p class="eyebrow">Part 2 of the Brightline story</p>
+      <p>In <a href="brightline.html#assistant">From Licences to Habits</a>, I recommended an AI assistant that answers from governed content only and says "I don't know" when it should. This project builds it, and adds the ownership and freshness checks that keep it trustworthy. On my <a href="assets/docs/AI-Maturity-Roadmap.pdf" target="_blank" rel="noopener">AI Maturity Roadmap</a>, it's the Walk phase: an internal chatbot on governed knowledge, with automated content-quality checks.</p>
+    </div>
+
+    <div class="stack gap-16" data-reveal>
+      <p class="eyebrow">See the real artifacts</p>
+      <ul class="artifacts">
+        <li><a class="btn btn-line" href="assets/docs/ask-the-playbook/how-it-was-built.pdf" target="_blank" rel="noopener">How It Was Built <span class="ext">(PDF)</span></a></li>
+        <li><a class="btn btn-line" href="assets/docs/ask-the-playbook/eval-scorecard.pdf" target="_blank" rel="noopener">Eval Scorecard <span class="ext">(PDF)</span></a></li>
+        <li><a class="btn btn-line" href="assets/docs/ask-the-playbook/daily-check-report.pdf" target="_blank" rel="noopener">Daily Check Report <span class="ext">(PDF)</span></a></li>
+        <li><a class="btn btn-line" href="assets/docs/ask-the-playbook/sample-article-and-register.pdf" target="_blank" rel="noopener">Sample Article and Owner Register <span class="ext">(PDF)</span></a></li>
+      </ul>
+      <p class="small muted">Each opens as a PDF in a new tab. "How It Was Built" walks through every workflow, step by step.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== SECTIONS ===================== -->
+<section class="section bg-grey">
+  <div class="wrap stack gap-24">
+    <div class="acc-bar" data-reveal>
+      <h2 class="h-section">The full story</h2>
+      <button class="btn btn-line btn-sm" type="button" data-expand-all aria-pressed="false">Expand all</button>
+    </div>
+
+    <div class="accs">
+
+    <!-- 1. Challenge -->
+    <details class="acc" id="challenge" open>
+      <summary>
+        <span class="acc-num">01</span>
+        <span class="acc-title"><span class="eyebrow">The Challenge</span><span class="acc-head">A chatbot is only as trustworthy as the content behind it.</span></span>
+        <span class="acc-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="acc-body">
+        <p><strong>The situation:</strong> agents at Brightline Support, a fictional loyalty-program contact centre, searched three or more places for policy answers. The answers they found were sometimes out of date, sometimes contradicted each other, and often had no clear owner.</p>
+        <div class="stack gap-12">
+          <h3 class="h-sub">Why a chatbot alone would make it worse</h3>
+          <ul class="ticks">
+            <li><strong>It repeats stale content confidently.</strong> An outdated refund timeline becomes a fast wrong answer.</li>
+            <li><strong>It blends conflicts.</strong> "5 to 7 days" and "10 days" can turn into "5 to 10 days", which no policy says.</li>
+            <li><strong>Nobody fixes it.</strong> Without owners, problems are spotted by customers, not by the business.</li>
+            <li><strong>Training drifts too.</strong> Job aids and e-learning built on old policy quietly go stale.</li>
+          </ul>
+        </div>
+        <div class="callout">
+          <p><strong>The real problem:</strong> trust, not search. Agents need answers they can rely on, and a named person to fix them when they're wrong.</p>
+        </div>
+      </div>
+    </details>
+
+    <!-- 2. Discovery -->
+    <details class="acc" id="discovery">
+      <summary>
+        <span class="acc-num">02</span>
+        <span class="acc-title"><span class="eyebrow">Discovery</span><span class="acc-head">The pain point was freshness and ownership, not finding the article.</span></span>
+        <span class="acc-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="acc-body">
+        <p><strong>Where the needs came from:</strong> the Brightline discovery work (interviews, a shift walk-through, QA trends), plus patterns from 7 years in real contact centres and knowledge bases. An interview question also shaped it: <em>"How will you check the freshness of the content?"</em></p>
+        <div class="stack gap-12">
+          <h3 class="h-sub">What agents and leaders needed</h3>
+          <div class="tbl-wrap" tabindex="0" role="region" aria-label="Table, scrolls sideways on small screens"><table class="tbl">
+            <thead><tr><th scope="col">Need</th><th scope="col">What it means for the design</th></tr></thead>
+            <tbody>
+              <tr><td>Fast, correct answers</td><td>Answer first, in a few lines, from approved articles only</td></tr>
+              <tr><td>Proof of where an answer came from</td><td>Source, owner and review date on every answer</td></tr>
+              <tr><td>Honesty when content is missing</td><td>"I don't know. Please ask your team lead." No guessing.</td></tr>
+              <tr><td>Privacy</td><td>Never repeat customer details; use placeholders</td></tr>
+              <tr><td>Content that stays right</td><td>Named owners, review cycles and a daily check</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+        <div class="stack gap-12">
+          <h3 class="h-sub">How I knew it worked</h3>
+          <ul class="ticks">
+            <li>At least 90% of test answers fully correct, and 90% sourced</li>
+            <li>100% safe: one unsafe answer fails the whole test run</li>
+            <li>Every article owned, and every planted problem caught within a day</li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+    <!-- 3. Approach -->
+    <details class="acc" id="approach">
+      <summary>
+        <span class="acc-num">03</span>
+        <span class="acc-title"><span class="eyebrow">Choosing the Approach</span><span class="acc-head">I paired the chatbot with ownership and a daily check, using low-cost tools.</span></span>
+        <span class="acc-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="acc-body">
+        <div class="stack gap-12">
+          <h3 class="h-sub">Options I weighed</h3>
+          <div class="tbl-wrap" tabindex="0" role="region" aria-label="Table, scrolls sideways on small screens"><table class="tbl">
+            <thead><tr><th scope="col">Option</th><th scope="col">Upside</th><th scope="col">Why not, on its own</th></tr></thead>
+            <tbody>
+              <tr><td>Better search and tagging</td><td>Cheap, familiar</td><td>Still leaves agents reading and comparing articles mid-call</td></tr>
+              <tr><td>A chatbot over the existing content</td><td>Fast answers</td><td>Repeats stale or conflicting content with confidence</td></tr>
+              <tr><td><strong>Chatbot + ownership + daily check (chosen)</strong></td><td>Fast answers that stay right, with a person accountable</td><td>More to build, so I kept each part simple</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+        <div class="stack gap-12">
+          <h3 class="h-sub">Why each tool</h3>
+          <div class="tbl-wrap" tabindex="0" role="region" aria-label="Table, scrolls sideways on small screens"><table class="tbl">
+            <thead><tr><th scope="col">Tool</th><th scope="col">Job</th><th scope="col">Why I chose it</th></tr></thead>
+            <tbody>
+              <tr><td>n8n</td><td>Runs the three workflows</td><td>Visual workflows that non-developers can read and audit; free to self-host</td></tr>
+              <tr><td>Pinecone</td><td>Stores articles for search by meaning</td><td>Keeps each article's owner and review dates next to its text</td></tr>
+              <tr><td>Google Gemini</td><td>Embeddings, answers and the daily review</td><td>Strong, low-cost models, covered by credits in a plan I already had</td></tr>
+              <tr><td>Plain files</td><td>Articles, owner register, change feed</td><td>Easy to read and edit; stand-ins for SharePoint or a CMS</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+      </div>
+    </details>
+
+    <!-- 4. Ownership -->
+    <details class="acc" id="ownership">
+      <summary>
+        <span class="acc-num">04</span>
+        <span class="acc-title"><span class="eyebrow">Content Ownership</span><span class="acc-head">Every article has an owner and a backup, and nothing goes unowned quietly.</span></span>
+        <span class="acc-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="acc-body">
+        <p><strong>Where ownership lives:</strong> in each article's header, and in an owner register listing every article's owner, backup, review cycle, review dates and linked training.</p>
+        <div class="stack gap-12">
+          <h3 class="h-sub">Four rules</h3>
+          <ul class="ticks">
+            <li><strong>1. No owner, no publish.</strong> An unowned article goes to the Knowledge Manager the same day.</li>
+            <li><strong>2. Weekly ownership check.</strong> The register and the articles must agree.</li>
+            <li><strong>3. Owner shown with every answer.</strong> Agents know who to ask; owners see their name on what they publish.</li>
+            <li><strong>4. Owner first, then backup.</strong> No reply in 5 business days, and the item goes to the backup.</li>
+          </ul>
+        </div>
+        <figure class="fig">
+          <button class="frame" type="button" data-zoom="assets/img/atp/routing.png" data-alt="Diagram: every issue goes to one named person, with a backup" aria-label="Enlarge the issue routing diagram">
+            <img src="assets/img/atp/routing.png" width="1344" height="614" alt="Diagram: the daily check sends article issues to the article owner (then the backup owner after 5 days with no reply), unowned articles and the full report to the Knowledge Manager, and affected training to the L&amp;D Lead." loading="lazy">
+          </button>
+          <figcaption>Training gets an owner too, so a policy change reaches the job aids and e-learning built on it.</figcaption>
+        </figure>
+      </div>
+    </details>
+
+    <!-- 5. How it works -->
+    <details class="acc" id="how">
+      <summary>
+        <span class="acc-num">05</span>
+        <span class="acc-title"><span class="eyebrow">How It Works</span><span class="acc-head">Three workflows share one store of owned articles.</span></span>
+        <span class="acc-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="acc-body">
+        <figure class="fig">
+          <button class="frame" type="button" data-zoom="assets/img/atp/architecture.png" data-alt="Architecture: three n8n workflows, Pinecone and Gemini" aria-label="Enlarge the architecture diagram">
+            <img src="assets/img/atp/architecture.png" width="1344" height="774" alt="Architecture diagram: the knowledge base feeds the ingest workflow, which stores chunks in Pinecone. Agents ask the chat workflow, which searches Pinecone and answers with Gemini. The daily check reads the files and owner register, reviews with Gemini, and sends to-do lists to owners and L&amp;D." loading="lazy">
+          </button>
+        </figure>
+        <div class="stack gap-12">
+          <h3 class="h-sub">1. Ingest: loading the articles</h3>
+          <p>Reads the 12 articles, tags each one current, overdue or unowned, splits them into 24 chunks and stores them in Pinecone with their owner and review dates. Re-running it never creates duplicates.</p>
+          <figure class="fig">
+            <button class="frame" type="button" data-zoom="assets/img/atp/ingest.png" data-alt="Ingest workflow: six steps from files to Pinecone" aria-label="Enlarge the ingest workflow diagram">
+              <img src="assets/img/atp/ingest.png" width="1344" height="480" alt="Ingest workflow: read files, extract text, read owner and dates, split into chunks, create Gemini embeddings, store in Pinecone." loading="lazy">
+            </button>
+          </figure>
+        </div>
+        <div class="stack gap-12">
+          <h3 class="h-sub">2. Chat: answering questions</h3>
+          <p>An AI agent searches the articles, then answers from only what it found. It ends every answer with the source, owner and review date.</p>
+          <figure class="fig">
+            <button class="frame" type="button" data-zoom="assets/img/atp/chat.png" data-alt="Chat workflow: three possible outcomes" aria-label="Enlarge the chat workflow diagram">
+              <img src="assets/img/atp/chat.png" width="1344" height="608" alt="Chat workflow: the agent's question goes to the AI agent, which searches the playbook, then either answers with source and owner, asks one clarifying question, or says it doesn't know." loading="lazy">
+            </button>
+          </figure>
+          <ul class="ticks">
+            <li>Answer the exact question first, then conditions, in the article's own words</li>
+            <li>Warn when an article has no owner or is overdue for review</li>
+            <li>If two articles disagree, use the most recently reviewed one and say so; never blend them</li>
+            <li>Never repeat customer details; never promise more than an article allows</li>
+          </ul>
+        </div>
+        <p><strong>Where it runs:</strong> ingest and the daily check run in n8n on my computer. The chat runs on n8n Cloud, so the live demo works any time.</p>
+      </div>
+    </details>
+
+    <!-- 6. Testing -->
+    <details class="acc" id="testing">
+      <summary>
+        <span class="acc-num">06</span>
+        <span class="acc-title"><span class="eyebrow">Testing the Answers</span><span class="acc-head">I wrote 20 test questions first, including traps, and scored every answer.</span></span>
+        <span class="acc-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="acc-body">
+        <div class="tbl-wrap" tabindex="0" role="region" aria-label="Table, scrolls sideways on small screens"><table class="tbl">
+          <thead><tr><th scope="col">Kind</th><th scope="col">Count</th><th scope="col">What it tests</th></tr></thead>
+          <tbody>
+            <tr><td>Lookup</td><td>6</td><td>One clear answer in one article</td></tr>
+            <tr><td>Two-article</td><td>3</td><td>Combining two articles correctly</td></tr>
+            <tr><td>Vague</td><td>3</td><td>Asking instead of guessing</td></tr>
+            <tr><td>Out of scope</td><td>4</td><td>Saying "I don't know", and resisting "ignore your rules"</td></tr>
+            <tr><td>Trap</td><td>3</td><td>A planted conflict, an unowned article and a false premise</td></tr>
+            <tr><td>Personal data</td><td>1</td><td>Not repeating customer details</td></tr>
+          </tbody>
+        </table></div>
+        <p><strong>Scoring:</strong> Correct (0 to 2), Sourced (0 or 1), Safe (0 or 1). Pass mark: 90% correct, 90% sourced, 100% safe.</p>
+        <figure class="fig">
+          <button class="frame" type="button" data-zoom="assets/img/atp/eval.png" data-alt="Chart: correct answers by kind of question, before and after fixes" aria-label="Enlarge the eval results chart">
+            <img src="assets/img/atp/eval.png" width="1344" height="650" alt="Chart of correct answers by kind of question. Out of scope rose from 75% to 100%. Vague rose from 67% to 83%. Lookup moved from 100% to 92%. Two-article, trap and personal data stayed at 100%." loading="lazy">
+          </button>
+          <figcaption>Overall: 90% correct before, 95% after. Sourced rose from 95% to 100%. Safe stayed at 100%.</figcaption>
+        </figure>
+        <div class="stack gap-12">
+          <h3 class="h-sub">What changed, and why</h3>
+          <ul class="ticks">
+            <li><strong>A question it couldn't answer caused an error.</strong> It kept searching for a hotel policy that doesn't exist. Fix: search at most twice, then say "I don't know".</li>
+            <li><strong>Vague questions missed an option.</strong> Fix: name every matching process in the clarifying question.</li>
+            <li><strong>Unneeded privacy reminders on every answer.</strong> Fix: remind only when personal data appears.</li>
+          </ul>
+        </div>
+        <div class="callout">
+          <p><strong>Still not perfect:</strong> two answers scored 1 out of 2 in the final run. One blurred a transfer limit; one left out the goodwill limit. I scored them honestly. The <a href="assets/docs/ask-the-playbook/eval-scorecard.pdf" target="_blank" rel="noopener">Eval Scorecard</a> shows every question and score.</p>
+        </div>
+      </div>
+    </details>
+
+    <!-- 7. Freshness -->
+    <details class="acc" id="freshness">
+      <summary>
+        <span class="acc-num">07</span>
+        <span class="acc-title"><span class="eyebrow">Keeping It Fresh</span><span class="acc-head">Every morning, a check finds what needs attention and tells the right owner.</span></span>
+        <span class="acc-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="acc-body">
+        <figure class="fig">
+          <button class="frame" type="button" data-zoom="assets/img/atp/steward.png" data-alt="Daily check: three files in, a to-do list per owner out" aria-label="Enlarge the daily check diagram">
+            <img src="assets/img/atp/steward.png" width="1344" height="544" alt="Daily check workflow: articles, owner register and change feed go through rule checks and an AI review, producing owner to-do lists and a full report for the Knowledge Manager. Nothing changes until an owner approves." loading="lazy">
+          </button>
+        </figure>
+        <div class="tbl-wrap" tabindex="0" role="region" aria-label="Table, scrolls sideways on small screens"><table class="tbl">
+          <thead><tr><th scope="col">Check</th><th scope="col">How</th><th scope="col">What it caught</th></tr></thead>
+          <tbody>
+            <tr><td>Missing owner</td><td>Rule</td><td>An article with no owner or backup</td></tr>
+            <tr><td>Overdue review</td><td>Rule</td><td>An article 17 months past its review date</td></tr>
+            <tr><td>Format</td><td>Rule</td><td>An article written as one long paragraph</td></tr>
+            <tr><td>Conflicts</td><td>AI review</td><td>Refunds in "5 to 7 days" in one article, "10 days" in another</td></tr>
+            <tr><td>Change impact</td><td>AI review</td><td>A goodwill limit increase, and the training scenario it affects</td></tr>
+            <tr><td>Expiring content</td><td>AI review</td><td>A promotion ending on November 29</td></tr>
+          </tbody>
+        </table></div>
+        <p><strong>Why rules and AI together:</strong> rules handle exact things like dates, for free. One AI call per run handles what needs reading and comparing, for a fraction of a cent.</p>
+        <figure class="fig">
+          <button class="frame" type="button" data-zoom="assets/img/atp/steward-results.png" data-alt="Chart: issues found by the daily check, before and after fixes" aria-label="Enlarge the daily check results chart">
+            <img src="assets/img/atp/steward-results.png" width="1344" height="812" alt="Chart: before the owners' fixes, the daily check found 16 issues; after, 9. Unowned, overdue, conflicting and badly formatted articles all dropped to zero. Routine reviews and changes awaiting approval remained." loading="lazy">
+          </button>
+          <figcaption>See both runs in the <a href="assets/docs/ask-the-playbook/daily-check-report.pdf" target="_blank" rel="noopener">Daily Check Report</a>.</figcaption>
+        </figure>
+      </div>
+    </details>
+
+    <!-- 8. What went wrong -->
+    <details class="acc" id="lessons">
+      <summary>
+        <span class="acc-num">08</span>
+        <span class="acc-title"><span class="eyebrow">What Went Wrong</span><span class="acc-head">Seven real problems, each one fixed and turned into a design rule.</span></span>
+        <span class="acc-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="acc-body">
+        <div class="tbl-wrap" tabindex="0" role="region" aria-label="Table, scrolls sideways on small screens"><table class="tbl">
+          <thead><tr><th scope="col">What happened</th><th scope="col">Fix</th><th scope="col">Lesson</th></tr></thead>
+          <tbody>
+            <tr><td>Pinecone's console no longer offered the index type n8n needs</td><td>Created it through Pinecone's API from an n8n setup workflow</td><td>Check the current product, not the tutorial</td></tr>
+            <tr><td>Testing stopped at 20 requests a day on Gemini's free tier</td><td>Moved to the paid tier with Google AI Pro credits and a spend cap</td><td>Budget for real usage before testing at scale</td></tr>
+            <tr><td>The chatbot errored on a question it couldn't answer</td><td>Search at most twice, then say "I don't know"</td><td>Tell the AI when to stop</td></tr>
+            <tr><td>The daily check froze, then a chat answer hung</td><td>Returned the model to Google's default temperature, everywhere</td><td>Follow model-specific guidance; fix root causes everywhere</td></tr>
+            <tr><td>The daily check returned half an answer</td><td>Raised the length limit; the failure was caught and reported, not hidden</td><td>Design for failure: make errors visible</td></tr>
+            <tr><td>A test policy change muddled the conflict I was testing</td><td>Swapped it for a cleaner change</td><td>Each test should measure one thing</td></tr>
+            <tr><td>An answer led with a condition, not the timeframe asked for</td><td>Answer the exact question first, in the article's own words</td><td>Human review catches drift that scores miss</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </details>
+
+    <!-- 9. Cost and production -->
+    <details class="acc" id="cost">
+      <summary>
+        <span class="acc-num">09</span>
+        <span class="acc-title"><span class="eyebrow">Cost and Next Steps</span><span class="acc-head">It runs for very little, and I know what would change for a real team.</span></span>
+        <span class="acc-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="acc-body">
+        <div class="tbl-wrap" tabindex="0" role="region" aria-label="Table, scrolls sideways on small screens"><table class="tbl">
+          <thead><tr><th scope="col">Part</th><th scope="col">Cost</th></tr></thead>
+          <tbody>
+            <tr><td>n8n (local) and Pinecone (Starter)</td><td>Free</td></tr>
+            <tr><td>Gemini</td><td>Covered by the US$10 monthly Google AI Pro credit; a spend cap stops surprises</td></tr>
+            <tr><td>n8n Cloud, for the live demo</td><td>€24 a month while I'm job searching</td></tr>
+          </tbody>
+        </table></div>
+        <div class="stack gap-12">
+          <h3 class="h-sub">For a real team, I would add</h3>
+          <ul class="ticks">
+            <li>A connection to SharePoint, Confluence or the existing knowledge base</li>
+            <li>Owner digests by email or Teams, with approve and reject buttons</li>
+            <li>Single sign-on, question logging and a weekly eval run with alerts</li>
+            <li>Automatic removal of personal data before anything reaches the AI, signed off by Privacy</li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+    <!-- 10. How I used AI -->
+    <details class="acc" id="ai">
+      <summary>
+        <span class="acc-num">10</span>
+        <span class="acc-title"><span class="eyebrow">How I Used AI</span><span class="acc-head">AI helped me build faster. I made the calls and checked every result.</span></span>
+        <span class="acc-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="acc-body">
+        <ul class="ticks">
+          <li>I designed the content model, ownership rules, tests and scoring.</li>
+          <li>Claude was my build partner: planning, workflow code and documentation.</li>
+          <li>I reviewed answers myself, which caught a wording drift the scores missed.</li>
+        </ul>
+        <div class="tbl-wrap" tabindex="0" role="region" aria-label="Table, scrolls sideways on small screens"><table class="tbl">
+          <thead><tr><th scope="col">Tool</th><th scope="col">Used for</th><th scope="col">Status</th></tr></thead>
+          <tbody>
+            <tr><td>n8n (self-hosted and Cloud)</td><td>The ingest, chat and daily check workflows</td><td><span class="status status-built">Used</span></td></tr>
+            <tr><td>Pinecone</td><td>Search by meaning, with owner metadata</td><td><span class="status status-built">Used</span></td></tr>
+            <tr><td>Google Gemini</td><td>Embeddings, answers, daily review</td><td><span class="status status-built">Used</span></td></tr>
+            <tr><td>Claude</td><td>Planning, workflow code, documentation</td><td><span class="status status-built">Used</span></td></tr>
+            <tr><td>ElevenLabs</td><td>Voice for the video walkthrough</td><td><span class="status status-plan">Planned</span></td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </details>
+
+    <!-- 11. Skills -->
+    <details class="acc" id="skills">
+      <summary>
+        <span class="acc-num">11</span>
+        <span class="acc-title"><span class="eyebrow">Skills This Project Shows</span><span class="acc-head">Where to see each knowledge management and AI skill.</span></span>
+        <span class="acc-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="acc-body">
+        <div class="tbl-wrap" tabindex="0" role="region" aria-label="Table, scrolls sideways on small screens"><table class="tbl">
+          <thead><tr><th scope="col">Skill</th><th scope="col">Where to see it</th></tr></thead>
+          <tbody>
+            <tr><td>Knowledge governance and ownership</td><td><a href="#ownership">4. Content Ownership</a>, <a href="#freshness">7. Keeping It Fresh</a></td></tr>
+            <tr><td>Content design and templates</td><td><a href="assets/docs/ask-the-playbook/sample-article-and-register.pdf" target="_blank" rel="noopener">Sample article</a>, <a href="#how">5. How It Works</a></td></tr>
+            <tr><td>AI automation (RAG, agents, workflows)</td><td><a href="#how">5. How It Works</a>, <a href="assets/docs/ask-the-playbook/how-it-was-built.pdf" target="_blank" rel="noopener">How It Was Built</a></td></tr>
+            <tr><td>AI evaluation and quality</td><td><a href="#testing">6. Testing the Answers</a></td></tr>
+            <tr><td>Responsible AI and privacy</td><td><a href="#how">5. How It Works</a>, <a href="#testing">6. Testing the Answers</a></td></tr>
+            <tr><td>Problem framing and design thinking</td><td><a href="#challenge">1. The Challenge</a>, <a href="#discovery">2. Discovery</a>, <a href="#approach">3. Choosing the Approach</a></td></tr>
+            <tr><td>Learning and knowledge working together</td><td><a href="#ownership">4. Content Ownership</a>, <a href="brightline.html">From Licences to Habits</a></td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- Closing -->
+<section class="section bg-white cta">
+  <div class="wrap stack gap-24">
+    <p class="closing" data-reveal>An AI answer is only as good as the content behind it. That's why the real work here is ownership, freshness and testing, with the chatbot on top.</p>
+    <div class="stack gap-12" data-reveal style="--d: 80ms">
+      <p class="eyebrow">Keep exploring</p>
+      <a class="next" href="brightline.html">Back to Part 1: From Licences to Habits <span class="arrow" aria-hidden="true">→</span></a>
+      <a class="go" href="index.html#work">Back to all work <span class="arrow" aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer" id="contact">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="stack gap-12">
+        <h2 class="h-cta">Good information doesn't happen by accident. <span class="accent">It's designed.</span></h2>
+        <p class="sub">Have a content problem, a learning gap, or an AI-readiness question? Let's talk.</p>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-coral" href="mailto:vaibhavipathak@yahoo.com">Email me</a>
+        <a class="btn btn-line-light" href="https://www.linkedin.com/in/vaibhavi-bhatt-44175419/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="footer-inner">
+      <p>© <span data-year>2026</span> Vaibhavi Bhatt · designwithv.ca</p>
+      <div class="footer-links">
+        <a href="mailto:vaibhavipathak@yahoo.com">Email</a>
+        <a href="https://www.linkedin.com/in/vaibhavi-bhatt-44175419/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="assets/docs/Vaibhavi-Bhatt-Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<dialog class="lightbox" id="lightbox" aria-label="Enlarged image">
+  <button class="btn btn-sm lightbox-close" type="button">Close</button>
+  <img alt="">
+</dialog>
+
+<script src="js/main.js" defer></script>
+<script src="js/playbook-chat.js" defer></script>
+</body>
+</html>
